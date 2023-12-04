@@ -1,3 +1,5 @@
+const PREFIX = '[ERROR]';
+
 const MESSAGES = Object.freeze({
   greeting: '안녕하세요! 우테코 식당 12월 이벤트 플래너입니다.',
   dateQuery: '12월 중 식당 예상 방문 날짜는 언제인가요? (숫자만 입력해 주세요!)\n',
@@ -25,6 +27,7 @@ const MESSAGES = Object.freeze({
   menuDelimiter: ',',
   nameAndCountDelimiter: '-',
   printCount: '개',
+  invalidDate: `${PREFIX} 유효하지 않은 날짜입니다. 다시 입력해 주세요.`,
 });
 
 export default MESSAGES;
