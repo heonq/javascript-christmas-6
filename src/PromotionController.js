@@ -19,6 +19,11 @@ class PromotionController {
 
   handleDate(date) {
     if (!Validator.validateDate(date)) return this.readDate();
+    return this.readMenus();
+  }
+
+  async readMenus() {
+    const menus = await InputView.readMenus();
   }
 }
 
