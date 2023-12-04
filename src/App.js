@@ -1,5 +1,9 @@
+import PromotionController from './PromotionController.js';
+
 class App {
-  async run() {}
+  async run() {
+    await new PromotionController().play();
+  }
 }
 
 export default App;
