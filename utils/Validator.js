@@ -10,6 +10,34 @@ const Validator = {
     }
     return true;
   },
+  validateMenus(menus) {
+    const menuNames = menus.map(([menuName]) => menuName);
+    const menuCounts = menus.map(([_, menuCount]) => menuCount);
+    return this.checkMenuIncluded(menuNames) ||
+      this.checkDuplicatedMenu(menuNames) ||
+      this.checkTotalCount(menuCounts) ||
+      this.checkEachCount(menuCounts)
+      ? handleError(MESSAGES.invalidMenu)
+      : true;
+  },
+
+  checkMenuIncluded(menuNames) {
+    return !menuNames.every((menuName) => Object.keys(PRICES).includes(menuName));
+  },
+
+  checkDuplicatedMenu(menuNames) {
+    return menuNames.length !== new Set(menuNames).size;
+  },
+
+  checkTotalCount(menuCounts) {
+    const totalMenuCount = menuCounts.reduce((acc, count) => acc + count);
+    return totalMenuCount > VALUES.maximumMenuCount || totalMenuCount < VALUES.minimumMenuCount;
+  },
+  checkEachCount(menuCounts) {
+    return !menuCounts.every(
+      (menuCount) => menuCount >= VALUES.minimumMenuCount && menuCount <= VALUES.maximumMenuCount,
+    );
+  },
 };
 
 export default Validator;

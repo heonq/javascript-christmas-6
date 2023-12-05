@@ -24,6 +24,11 @@ class PromotionController {
 
   async readMenus() {
     const menus = await InputView.readMenus();
+    this.handleMenus(menus);
+  }
+
+  handleMenus(menus) {
+    if (!Validator.validateMenus(menus)) return this.readMenus();
   }
 }
 

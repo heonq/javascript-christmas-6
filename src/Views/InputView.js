@@ -8,7 +8,10 @@ const InputView = {
   },
   async readMenus() {
     const input = await Console.readLineAsync(MESSAGES.menuQuery);
-    return input.split(MESSAGES.menuDelimiter);
+    return input
+      .split(MESSAGES.menuDelimiter)
+      .map((menu) => menu.split(MESSAGES.nameAndCountDelimiter))
+      .map(([name, count]) => [name, Number(count)]);
   },
 };
 
