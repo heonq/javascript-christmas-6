@@ -15,7 +15,12 @@ const OutputView = {
   printMenus(menus) {
     Console.print(MESSAGES.HEADERS.menu);
     menus.forEach((menu) => Console.print(menu));
-    Console.pirnt(MESSAGES.lineBreak);
+    Console.print(MESSAGES.lineBreak);
+  },
+  printTotalAmountBeforeDiscount(amount) {
+    Console.print(MESSAGES.HEADERS.totalAmountBeforeDiscount);
+    Console.print(amount);
+    Console.print(MESSAGES.lineBreak);
   },
 };
 

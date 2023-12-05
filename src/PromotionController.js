@@ -34,7 +34,7 @@ class PromotionController {
     if (!Validator.validateMenus(menus)) return this.readMenus(date);
     this.printNoticeMessage(date);
     this.generatePlanner(menus, date);
-    this.printMenus(this.#planner.printMenus());
+    this.printHistory();
   }
 
   generatePlanner(menus, date) {
@@ -45,8 +45,17 @@ class PromotionController {
     OutputView.printNoticeMessage(date);
   }
 
-  printMenus(menus) {
-    OutputView.printMenus(menus);
+  printHistory() {
+    this.printMenus();
+    this.printTotalAmountBeforeDiscount();
+  }
+
+  printMenus() {
+    OutputView.printMenus(this.#planner.printMenus());
+  }
+
+  printTotalAmountBeforeDiscount() {
+    OutputView.printTotalAmountBeforeDiscount(this.#planner.printTotalAmountBeforeDiscount());
   }
 }
 
