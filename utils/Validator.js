@@ -1,7 +1,7 @@
 import VALUES from '../constants/Values.js';
 import MESSAGES from '../constants/Messages.js';
 import handleError from './handleError.js';
-import { PRICES } from '../constants/Menus.js';
+import { PRICES, CATEGORIES } from '../constants/Menus.js';
 
 const Validator = {
   validateDate(date) {
@@ -16,7 +16,8 @@ const Validator = {
     return this.checkMenuIncluded(menuNames) ||
       this.checkDuplicatedMenu(menuNames) ||
       this.checkTotalCount(menuCounts) ||
-      this.checkEachCount(menuCounts)
+      this.checkEachCount(menuCounts) ||
+      this.checkOnlyDrink(menuNames)
       ? handleError(MESSAGES.invalidMenu)
       : true;
   },
@@ -37,6 +38,9 @@ const Validator = {
     return !menuCounts.every(
       (menuCount) => menuCount >= VALUES.minimumMenuCount && menuCount <= VALUES.maximumMenuCount,
     );
+  },
+  checkOnlyDrink(menuNames) {
+    return menuNames.every((menuName) => CATEGORIES.drink.includes(menuName));
   },
 };
 
