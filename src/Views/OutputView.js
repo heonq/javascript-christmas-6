@@ -8,12 +8,10 @@ const OutputView = {
   printMessage(message) {
     Console.print(message);
   },
-
-  printMenu() {
-    Console.print('<주문 메뉴>');
-    // ...
+  printNoticeMessage(date) {
+    Console.print(MESSAGES.dateInformation(date));
+    Console.print(MESSAGES.lineBreak);
   },
-  // ...
 };
 
 export default OutputView;
