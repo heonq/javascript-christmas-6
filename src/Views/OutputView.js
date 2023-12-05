@@ -12,6 +12,11 @@ const OutputView = {
     Console.print(MESSAGES.dateInformation(date));
     Console.print(MESSAGES.lineBreak);
   },
+  printMenus(menus) {
+    Console.print(MESSAGES.HEADERS.menu);
+    menus.forEach((menu) => Console.print(menu));
+    Console.pirnt(MESSAGES.lineBreak);
+  },
 };
 
 export default OutputView;

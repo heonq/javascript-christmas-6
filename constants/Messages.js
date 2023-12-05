@@ -8,15 +8,15 @@ const MESSAGES = Object.freeze({
   dateInformation(date) {
     return `12월 ${date}일에 우테코 식당에서 받을 이벤트 혜택 미리보기!`;
   },
-  headers: [
-    '<주문 메뉴>',
-    '<할인 전 총 주문 금액>',
-    '<증정 메뉴>',
-    '<혜택 내역>',
-    '<총 혜택 금액>',
-    '<할인 후 예상 결제 금액>',
-    '<12월 이벤트 배지>',
-  ],
+  HEADERS: {
+    menu: '<주문 메뉴>',
+    totalAmountBeforeDiscount: '<할인 전 총 주문 금액>',
+    giveawayMenu: '<증정 메뉴>',
+    promotionHistory: '<혜택 내역>',
+    totalPromotionAmount: '<총 혜택 금액>',
+    totalAmountAfterDiscount: '<할인 후 예상 결제 금액>',
+    decemberBadgeEvent: '<12월 이벤트 배지>',
+  },
   none: '없음',
   amount: '원',
   badges: {
