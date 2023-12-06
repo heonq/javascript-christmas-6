@@ -48,6 +48,7 @@ class PromotionController {
   printHistory() {
     this.printMenus();
     this.printTotalAmountBeforeDiscount();
+    this.printGiveaway();
   }
 
   printMenus() {
@@ -56,6 +57,10 @@ class PromotionController {
 
   printTotalAmountBeforeDiscount() {
     OutputView.printTotalAmountBeforeDiscount(this.#planner.printTotalAmountBeforeDiscount());
+  }
+
+  printGiveaway() {
+    OutputView.printGiveaway(this.#planner.checkGiveawayMenu());
   }
 }
 

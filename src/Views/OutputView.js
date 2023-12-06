@@ -13,15 +13,26 @@ const OutputView = {
     Console.print(MESSAGES.dateInformation(date));
     Console.print(MESSAGES.lineBreak);
   },
+  printWithLineBreak(title, content) {
+    Console.print(MESSAGES.HEADERS[title]);
+    Console.print(content);
+    Console.print(MESSAGES.lineBreak);
+  },
   printMenus(menus) {
     Console.print(MESSAGES.HEADERS.menu);
     menus.forEach((menu) => Console.print(menu));
     Console.print(MESSAGES.lineBreak);
   },
   printTotalAmountBeforeDiscount(amount) {
-    Console.print(MESSAGES.HEADERS.totalAmountBeforeDiscount);
-    Console.print(Formatter.printCommaEachThreeDigits(amount) + MESSAGES.amount);
-    Console.print(MESSAGES.lineBreak);
+    this.printWithLineBreak(
+      'totalAmountBeforeDiscount',
+      Formatter.printCommaEachThreeDigits(amount) + MESSAGES.amount,
+    );
+  },
+  printGiveaway(giveawayBoolean) {
+    return giveawayBoolean
+      ? this.printWithLineBreak('giveawayMenu', MESSAGES.giveawayChampagne)
+      : this.printWithLineBreak('giveawayMenu', MESSAGES.none);
   },
 };
 

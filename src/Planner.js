@@ -1,6 +1,6 @@
 import MESSAGES from '../constants/Messages.js';
 import { PRICES } from '../constants/Menus.js';
-import Formatter from '../utils/Formatter.js';
+import VALUES from '../constants/Values.js';
 
 class Planner {
   #date;
@@ -20,6 +20,10 @@ class Planner {
 
   printTotalAmountBeforeDiscount() {
     return this.#menus.reduce((acc, [menuName, count]) => acc + PRICES[menuName] * count, 0);
+  }
+
+  checkGiveawayMenu() {
+    return this.printTotalAmountBeforeDiscount() > VALUES.giveAwayAmountNeeded;
   }
 }
 
