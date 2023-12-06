@@ -19,11 +19,7 @@ class Planner {
   }
 
   printTotalAmountBeforeDiscount() {
-    const totalAmount = this.#menus.reduce(
-      (acc, [menuName, count]) => acc + PRICES[menuName] * count,
-      0,
-    );
-    return Formatter.printCommaEachThreeDigits(totalAmount);
+    return this.#menus.reduce((acc, [menuName, count]) => acc + PRICES[menuName] * count, 0);
   }
 }
 

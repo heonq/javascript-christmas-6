@@ -1,5 +1,6 @@
 import { Console } from '@woowacourse/mission-utils';
 import MESSAGES from '../../constants/Messages.js';
+import Formatter from '../../utils/Formatter.js';
 
 const OutputView = {
   printGreeting() {
@@ -19,7 +20,7 @@ const OutputView = {
   },
   printTotalAmountBeforeDiscount(amount) {
     Console.print(MESSAGES.HEADERS.totalAmountBeforeDiscount);
-    Console.print(amount);
+    Console.print(Formatter.printCommaEachThreeDigits(amount) + MESSAGES.amount);
     Console.print(MESSAGES.lineBreak);
   },
 };
